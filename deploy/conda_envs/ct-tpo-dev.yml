@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+dependencies:
+  - six==1.16.0 # Bayesian Learning
+  - mlflow==1.26.0 # Bayesian Library Dependency
+  - arviz==0.12.1 # Bayesian Learning
+  - pyomo==6.4.1 # Optimization model building
+  - xmltodict==0.12.0 # imported in notebooks but not in dependency list
+  - pip:
+    - tensorflow==2.9.1 # Bayesian Learning  # core
+    - tensorflow-probability==0.17.0 # Bayesian Learning # core
+    - protobuf==3.19.4

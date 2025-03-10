@@ -1,0 +1,6 @@
+channels:
+  # - defaults
+  - conda-forge
+dependencies:
+  - pip:
+    - kmodes==0.12.2

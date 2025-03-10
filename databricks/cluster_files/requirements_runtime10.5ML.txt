@@ -1,0 +1,15 @@
+great-expectations==0.13.4
+category_encoders==2.4.1
+datashader==0.13.0
+param==1.9.3
+panel==0.9.7
+bokeh==2.2.3
+holoviews==1.13.4
+hvplot==0.6.0
+lxml==4.6.1
+python-slugify==3.0.4
+pyjanitor==0.20.9
+numpy==1.21.6
+pandas==1.4.2
+packaging==21.3
+xarray==0.21.1
