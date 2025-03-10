@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # housing-price-prediction
 =======
+=======
+>>>>>>> main
 # Sales price prediction
 
 Use regression to predict price of electronic devices
@@ -236,5 +239,9 @@ To set up the environment in a cloud setting, you can refer to the following lin
 # Frequently Asked Questions
 
 The FAQ for code templates during setting up, testing, development and adoption phases are available
+<<<<<<< HEAD
 [here](https://tigeranalytics-code-templates.readthedocs-hosted.com/en/latest/faq.html)
 >>>>>>> 79e5b0b (housing price prediction using regression)
+=======
+[here](https://tigeranalytics-code-templates.readthedocs-hosted.com/en/latest/faq.html)
+>>>>>>> main
