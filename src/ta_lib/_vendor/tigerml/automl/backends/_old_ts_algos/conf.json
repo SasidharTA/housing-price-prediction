@@ -1,0 +1,45 @@
+{
+    "default":{
+        "algorithms":["SimpleExponentialSmoothing","ExponentialSmoothingHolt","ExponentialSmoothingHoltWinters",
+			"SARIMAX","LSTMSeqToSeqMultivariate"],
+        "data_location":"~/TA_Accelerators/for_git/AutoTS/data/input/INDUSTRY_UNITS.csv",
+        "performance_metrics":["rmse", "mape", "mae"],
+		"dv_variable_name":"TWO_DOOR_BOTTOM_MOUNT",
+		"idv_variable_names":["HOUSE_PRICE_INDEX","CPI"]
+    },
+    "hyperparams":{
+        "SimpleExponentialSmoothing":{
+		    "smoothing_level":[]
+			},
+		"ExponentialSmoothingHolt":{
+		    "smoothing_level":[],
+			"smoothing_slope":[]
+			},
+        "ExponentialSmoothingHoltWinters":{
+		    "trend_type":[],
+			"seasonal_type":[],
+			"seasonal_periods":[],
+		    "smoothing_level":[],
+			"smoothing_slope":[],
+			"smoothing_seasonal":[]
+			},
+		"SARIMAX":{
+		    "p":[NaN],
+			"d":[NaN],
+			"q":[NaN],
+		    "seasonalOrder":[NaN,NaN,NaN,NaN]
+			},
+        "LSTMSeqToSeqMultivariate":{
+		    "n_epochs":[10],
+			"batch_size":[2],
+			"n_hidden_layers":[2],
+		    "ip_seq_len":[4],
+			"ip_to_op_offset":[4],
+			"op_seq_len":[4],
+			"n_lstm_units_in_hidden_layers":[4],
+			"n_lstm_units_decay_percent":[20],
+			"optimizer":["adam"],
+			"loss":["mean_squared_error"]
+			}
+    }
+}

@@ -1,0 +1,7 @@
+mlflow==1.26.0 # Bayesian library dependency
+openpyxl==3.0.9 # Bayesian library dependency
+six==1.16.0 # Bayesian library core dependency
+arviz==0.12.1 # Bayesian library core dependency
+tensorflow==2.9.1 # Bayesian library core dependency
+tensorflow-probability==0.17.0 # Bayesian library core dependency
+protobuf==3.19.4

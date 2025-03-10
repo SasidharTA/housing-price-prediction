@@ -1,0 +1,6 @@
+channels:
+- conda-forge
+dependencies:
+- pip:
+  - luminol==0.4
+  - ruptures==1.1.6

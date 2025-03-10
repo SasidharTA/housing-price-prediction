@@ -1,0 +1,76 @@
+.highlighttext {
+    background-color: #83f52c;
+    font-style: italic
+}
+
+.rst-content .exampleadmonition .admonition-title  {
+    background: #001F25
+}
+
+.rst-content .exampleadmonition {
+    background: #FFE0DA
+}
+
+.rst-content .referenceadmonition .admonition-title  {
+    background: #b99976
+}
+
+.rst-content .referenceadmonition {
+    background: #e5d3b3
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.jupyter_container .cell_output .output.text_html {
+    font-family: monospace;
+    font-size: revert;
+    font-style: italic;
+    background-color: #C5DD96
+}
+
+.wy-table-responsive {
+    overflow: visible !important;
+}
+
+.toggle .header {
+    display: block;
+    clear: both;
+}
+
+.toggle .header:after {
+    content: " ▶";
+}
+
+.toggle .header.open:after {
+    content: " ▼";
+
+}
+
+html.writer-html5 .rst-content table.docutils ol>* {
+    font-size: 0.8rem;
+}
+
+html.writer-html5 .rst-content table.docutils ol li>p {
+    font-size: 0.8rem;
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+}
+
+.rst-content code.xref, a code {
+    background-color: aliceblue;
+    font-weight: 1000;
+    color: #2878A2;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.wy-nav-content {
+   max-width: 1900px !important;;
+}

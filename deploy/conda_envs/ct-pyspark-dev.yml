@@ -1,0 +1,11 @@
+channels:
+  # - defaults
+  - conda-forge
+dependencies:
+  - pip:
+    - pyspark==3.2.0
+    - pyspark_dist_explore==0.1.8
+    - py4j==0.10.9.2
+    - cytoolz==0.12.0
+    # - databricks-connect==8.1.*
+    # - databricks-cli==0.9.1

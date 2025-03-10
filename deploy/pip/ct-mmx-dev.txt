@@ -1,0 +1,5 @@
+arviz==0.15.1
+protobuf==3.19.4
+bambi==0.10.0
+jupyter_dash==0.4.2
+nbformat==5.8.0

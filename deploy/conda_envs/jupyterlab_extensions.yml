@@ -1,0 +1,16 @@
+extensions:
+  - channel: jupyter-widgets
+    name: jupyterlab-manager
+    version: "3.0"
+  # - channel: pyviz
+  #   name: jupyterlab_pyviz
+  #   version: "0.8.0"
+  # - channel: jupyterlab
+  #   name: toc
+  #   version: "5.4.2"
+  # - channel: aquirdturtle
+  #   name: collapsible_headings
+  #   version: "2.2.0"
+  # - channel: ijmbarr
+  #   name: jupyterlab_spellchecker
+  #   version: "0.1.6"

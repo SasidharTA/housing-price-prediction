@@ -1,0 +1,153 @@
+{
+    "algorithms":["SimpleExponentialSmoothing","ExponentialSmoothingHolt","ExponentialSmoothingHoltWinters","SARIMAX","elasticnet","prophet","xgboost"],
+    
+    "performance_metrics":["rmse", "mape", "mae"],
+
+    "validation_hyperparams":{
+        "metric": "mae",
+        "split": "cv",
+        "cv": {"n_splits": 6, "gap": 0, "n_test_datapoints": 24, "stride": 4},
+        "no_cv": {
+            "type": "n_points_type",
+            "test_perc_type": {"test_perc": 0.2},
+            "n_points_type": {"n_test_datapoints": 24}
+        }
+    },
+
+
+    
+    "model_hyperparams":{
+        "algorithm":"SimpleExponentialSmoothing",
+        "SimpleExponentialSmoothing":{
+            "fit":{
+                "smoothing_level":[0.2, 0.3],
+                "optimized":[true],
+                "start_params":[null],
+                "initial_level":[null],
+                "use_brute":[true]
+            },   
+            "__init__":{
+                "endog":[null]
+			}
+        },
+		"ExponentialSmoothingHolt":{
+            "fit":{
+                "smoothing_level":[0.2, 0.3],
+                "optimized":[true],
+                "start_params":[null],
+                "use_brute":[true]
+            },   
+            "__init__":{
+                "endog":[null]
+			}
+		},
+        "ExponentialSmoothingHoltWinters":{
+            "fit":{
+                "smoothing_level":[0.2, 0.3],
+                "optimized":[true],
+                "remove_bias":[false],
+                "start_params":[null],
+                "use_brute":[true]
+            },   
+            "__init__":{
+                "endog":[null]
+			}
+		},
+        "SARIMAX":{
+            "fit":{
+                "start_params":[null],
+                "cov_type":["opg","oim","approx","robust","robust_approx"],
+                "optim_score":["harvey","approx"],
+                "optim_hessian":["opg","oim","approx"],
+                "transformed":[true],
+                "includes_fixed":[false],
+                "maxiter":[1000],
+                "optim_complex_step":[true],
+                "disp":[true]
+            },
+            "__init__":{
+                "endog":[null],
+                "measurement_error":[false],
+                "order":[[1,1,1]],
+                "seasonal_order":[[0,0,0,0]],
+                "trend":["c","t","n","ct"],
+                "time_varying_regression":[false],
+                "mle_regression":[false],
+                "simple_differencing":[false],
+                "enforce_stationarity":[true],
+                "enforce_invertibility":[true],
+                "hamilton_representation":[false],
+                "concentrate_scale":[false],
+                "trend_offset":[1],
+                "use_exact_diffuse":[false]
+            }
+        },
+        "elasticnet": {
+            "__init__": {
+                "alpha": [0.001, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1],
+                "l1_ratio": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+                "fit_intercept": [true],
+                "normalize": [true],
+                "precompute": [false],
+                "max_iter": [1000],
+                "copy_X": [true],
+                "tol": [0.0001],
+                "warm_start": [false],
+                "positive": [true],
+                "random_state": [null],
+                "selection": ["cyclic"]
+            }
+        },
+        "prophet": {
+            "__init__": {
+                "growth": ["linear"],
+                "changepoints": [null],
+                "n_changepoints": [25],
+                "changepoint_range": [0.8],
+                "yearly_seasonality": [true],
+                "weekly_seasonality": [false],
+                "daily_seasonality": [false],
+                "holidays": [null],
+                "seasonality_mode": ["additive"],
+                "seasonality_prior_scale": [7.0, 10.0],
+                "holidays_prior_scale": [7.0, 10.0],
+                "changepoint_prior_scale": [0.05, 0.1, 0.3],
+                "mcmc_samples": [0],
+                "interval_width": [0.8],
+                "uncertainty_samples": [1000],
+                "stan_backend": [null]
+            }
+        },
+        "xgboost": {
+            "__init__": {
+                "objective": ["reg:squarederror"],
+                "max_depth": [5, 10, 15],
+                "learning_rate": [0.05, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12],
+                "n_estimators": [1, 5, 10, 15, 20],
+                "verbosity": [null],
+                "booster": ["gbtree"],
+                "tree_method": ["exact"],
+                "n_jobs": [null],
+                "gamma": [null],
+                "min_child_weight": [null],
+                "max_delta_step": [null],
+                "subsample": [0.8],
+                "colsample_bytree": [0.85],
+                "colsample_bylevel": [null],
+                "colsample_bynode": [null],
+                "reg_alpha": [null],
+                "reg_lambda": [null],
+                "scale_pos_weight": [null],
+                "base_score": [null],
+                "random_state": [123],
+                "num_parallel_tree": [null],
+                "monotone_constraints": [null],
+                "interaction_constraints": [null],
+                "importance_type": ["gain"],
+                "gpu_id": [null],
+                "validate_parameters": [null]
+            }
+        }
+        
+    }
+}

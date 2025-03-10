@@ -1,0 +1,5 @@
+surprise==0.1
+implicit==0.6.2
+torch==2.0.1
+torch-geometric==2.3.1
+plotly==5.15.0
