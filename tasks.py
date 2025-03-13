@@ -289,7 +289,7 @@ def _setup_env_common(c, env_name, platform=PLATFORM, env=DEV_ENV, force=False, 
 
 def _setup_env_common_usecase(c, env_name, platform=PLATFORM, env=DEV_ENV, force=False):
     """
-    Set up a Conda environment for the specific use case, utilizing `conda env create` and `pip install` 
+    Set up a Conda environment for the specific use case, utilizing `conda env create` and `pip install`
     when the usecase parameter is used in set_env.
     """
     force_flag = "" if not force else "--force"
@@ -306,7 +306,7 @@ def _setup_env_common_usecase(c, env_name, platform=PLATFORM, env=DEV_ENV, force
 
         # install the current package
         c.run(f"""python -m pip install -e "{HERE}" """)
-    
+
     # Commented out below code as it was unnecessary and slowing down environment creation.
     # _jupyterlab_install(c, env_name, env_file)
 
@@ -360,7 +360,7 @@ def setup_env(c, platform=PLATFORM, env=DEV_ENV, force=False, usecase=None, pyth
                 "This is not a valid usecase. Valid usecases -> tpo or rtm or mmx or ebo")
 
     env_name = _get_env_name(env)
-   
+
     if usecase:
         _setup_env_common_usecase(c, env_name, platform=platform, env=env, force=force)
         with py_env(c, env_name):
@@ -369,7 +369,7 @@ def setup_env(c, platform=PLATFORM, env=DEV_ENV, force=False, usecase=None, pyth
             out_upd = c.run(f"""conda env update --name {env_name} --file "{usecase_file}" """)
     else:
         _setup_env_common(c, env_name, platform=platform, env=env, force=force, python_version=python_version)
-        
+
 
 @task(
     help={
@@ -416,9 +416,9 @@ def setup_env_pyspark(c, platform=PLATFORM, env=DEV_ENV, force=False, python_ver
     # print(f"env_name is {env_name} \n env_file is {env_file}")  # TODO: Delete this
 
     _setup_env_common(c, env_name, platform=platform, env=env, force=force, python_version=python_version)
-    
+
     with py_env(c, env_name):
-        
+
         c.run(
             f"""pip install -r "{usecase_file}" """
         )
@@ -451,10 +451,10 @@ def _addon_update_env(c, addon_file, env_name):
     if "documentation" in addon_file:
         os.makedirs(op.join(HERE, "docs/build"), exist_ok=True)
         os.makedirs(op.join(HERE, "docs/source"), exist_ok=True)
-        
+
     # Commented out below code as it was unnecessary
     # jupyterlab is enough to run the notebooks, jupyter extension is not required.
-    
+
     # if "jupyter" in addon_file:
     #     extensions_file = op.abspath(
     #         op.join(CONDA_ENV_FOLDER, "jupyterlab_extensions.yml")
@@ -836,7 +836,7 @@ def run_all_tests(c):
 def _get_expected_env_list(env_files):
     expected_list = []
     expected_list.append("ta-lib=={}".format(get_package_version(SOURCE_FOLDER)))
-    
+
     # collecting all the dependencies from the env files
     for env_file in env_files:
         if env_file.endswith('.yaml') or env_file.endswith('.yml'):
@@ -1121,6 +1121,16 @@ def start_ipython_shell(c, platform=PLATFORM, env=DEV_ENV):
     startup_script = op.join(HERE, "deploy", "ipython", "default_startup.py")
     with py_env(c, env_name):
         c.run(f"""ipython -i "{startup_script}" """)
+
+@task(name="RunNotebooks")
+def run_notebooks(c):
+    """Execute all Jupyter notebooks in the notebooks directory."""
+    c.run("jupyter nbconvert --execute --inplace notebooks/reference*.ipynb")
+
+@task(name="Complexity")
+def code_complexity(c):
+    """Run Radon to analyze code complexity from the base environment."""
+    c.run("radon cc . -s -a")
 
 
 _create_task_collection(
